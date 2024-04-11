@@ -7,11 +7,20 @@ export async function getMovieService() {
   return data;
 }
 
-// Get movie By Id
+// Get movie By genre
 export async function getMovieByIdService(genre) {
     const res = await fetch(`https://movie-api-get-only-bmc3.vercel.app/api/genre=${genre}`);
 
     //convert from json to java script object
     const data = res.json();
     return data;
+}
+
+// Get movie By genre
+export async function getMovieById(movie_id) {
+  const res = await fetch(`https://movie-api-get-only-bmc3.vercel.app/api/${movie_id}`);
+
+  //convert from json to java script object
+  const data = res.json();
+  return data;
 }

@@ -9,7 +9,7 @@ const CardComponent = async ({dataMovie}) => {
         {dataMovie.map((data) => (
           <Link href={`/movie/${data?.movie_id}`} scroll={false}>
             <div
-              key={data.movieData}
+              key={data.movie_id}
               className="card w-96 h-[380px] bg-base-100 shadow-xl rounded-lg p-5 bg-slate-400">
               <figure>
                 <img src={data.image || 'https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'} alt="movie" />
@@ -21,9 +21,7 @@ const CardComponent = async ({dataMovie}) => {
             </div>
           </Link>
         ))}
-      </div>
-
-     
+      </div>    
     </main>
   );
 };

@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import bg from "../../public/bg.webp";
-import { getMovieService } from "@/services/product.service";
+import { getMovieService } from "@/services/movie.service";
 import CardComponent from "@/components/CardComponent.";
 
 export default async function Home() {
