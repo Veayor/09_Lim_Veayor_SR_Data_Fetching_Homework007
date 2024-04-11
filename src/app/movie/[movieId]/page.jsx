@@ -1,3 +1,4 @@
+import Fastart from "@/components/Fastart";
 import { getMovieById } from "@/services/movie.service";
 import { data } from "autoprefixer";
 import React from "react";
@@ -6,6 +7,11 @@ const Movie = async ({ params }) => {
   const data = await getMovieById(params.movieId);
 
   console.log("Movie Datadetail ById", data);
+  const rating= data.payload.rating;
+    let rat=[]
+    for(let i=0;i<Math.ceil(rating);i++){
+        rat.push(i);
+    }
   return (
     <div>
       <div className=" bg-red-900 dark:bg-gray-800 py-8">
@@ -25,8 +31,14 @@ const Movie = async ({ params }) => {
                 {data.payload.director}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                {data.payload.genre}
+                {data.payload.genre}             
               </p>
+              <div className="flex items-center mt-2">
+                                        {/* {data.payload.rating} */}
+                                        <span className="flex">
+                                            {rat.map(e=><Fastart/>)}
+                                        </span>
+                                    </div>
               <div className="flex mb-4">
                 <div>
                   <h1>{data.payload.movie_title}({data.payload.released_year})</h1>
